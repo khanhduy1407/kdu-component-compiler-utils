@@ -1,0 +1,71 @@
+{
+  "name": "@nkduy/component-compiler-utils",
+  "version": "3.1.2",
+  "description": "Lower level utilities for compiling Kdu single file components",
+  "main": "dist/index.js",
+  "typings": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "lib"
+  ],
+  "scripts": {
+    "lint": "prettier --write \"{lib,test}/**/*.ts\"",
+    "test": "prettier --list-different \"{lib,test}/**/*.ts\" && jest --coverage",
+    "build": "rm -rf dist && tsc",
+    "prepublishOnly": "yarn build && conventional-changelog -p angular -r 2 -i CHANGELOG.md -s"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged"
+  },
+  "lint-staged": {
+    "*.{ts,js}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/khanhduy1407/kdu-component-compiler-utils.git"
+  },
+  "keywords": [
+    "kdu",
+    "sfc",
+    "component",
+    "compiler"
+  ],
+  "author": "NKDuy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/khanhduy1407/kdu-component-compiler-utils/issues"
+  },
+  "homepage": "https://github.com/khanhduy1407/kdu-component-compiler-utils",
+  "devDependencies": {
+    "@types/jest": "^22.2.3",
+    "@types/node": "^10.12.20",
+    "conventional-changelog-cli": "^2.0.11",
+    "jest": "^24.0.0",
+    "less": "^3.9.0",
+    "lint-staged": "^8.1.1",
+    "pug": "^2.0.3",
+    "sass": "^1.17.3",
+    "stylus": "^0.54.5",
+    "ts-jest": "^24.0.0",
+    "typescript": "^3.3.0",
+    "kdu": "^2.6.11",
+    "kdu-template-compiler": "^2.6.11",
+    "yorkie": "^2.0.0"
+  },
+  "dependencies": {
+    "consolidate": "^0.15.1",
+    "hash-sum": "^1.0.2",
+    "lru-cache": "^4.1.2",
+    "merge-source-map": "^1.1.0",
+    "postcss": "^7.0.14",
+    "postcss-selector-parser": "^6.0.2",
+    "source-map": "~0.6.1",
+    "kdu-template-es2015-compiler": "^1.6.0"
+  },
+  "optionalDependencies": {
+    "prettier": "^1.18.2"
+  }
+}
